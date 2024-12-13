@@ -1,0 +1,334 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{physics,amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[mathscr]{euscript}
+
+
+\title{\textbf{Solved selected problems of Symmetry in Mechanics by Stephanie Singer}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\hatr}{\bm{\hat{r}}}
+\newcommand{\hatn}{\bm{\hat{n}}}
+\newcommand{\hatx}{\bm{\hat{x}}}
+\newcommand{\haty}{\bm{\hat{y}}}
+\newcommand{\hatz}{\bm{\hat{z}}}
+\newcommand{\hatth}{\bm{\hat{\theta}}}
+\newcommand{\hatphi}{\bm{\hat{\phi}}}
+\newcommand{\hatrho}{\bm{\hat{\rho}}}
+\newcommand{\er}{\bm{e}_r}
+\newcommand{\etht}{\bm{e}_\theta}
+\newcommand{\uvi}{\bm{i}}
+\newcommand{\uvj}{\bm{j}}
+\newcommand{\uvk}{\bm{k}}
+
+\theoremstyle{definition}
+\newtheorem*{solution*}{Solution}
+\renewcommand*{\proofname}{Solution}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 1 - The Two-Body Problem}
+
+\begin{proof}{\textbf{Exercise 6}}
+\begin{itemize}
+    \item [1.] Given $\bm{f},\bm{g}:\R \to \R^3$ we know that the cross product
+    between $\bm{f}(t)$ and $\bm{g}(t)$ give us
+    \begin{align*}
+        (\bm{f}(t) \times \bm{g}(t))_1 &= (f_2g_3 - f_3g_2)\\
+        (\bm{f}(t) \times \bm{g}(t))_2 &= (f_3g_1 - f_1g_3)\\
+        (\bm{f}(t) \times \bm{g}(t))_3 &= (f_1g_2 - f_2g_1)
+    \end{align*}
+    Also we know that 
+    \begin{align*}
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))
+        &= \bigg(
+            \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_1,
+            \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_2,
+            \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_3
+        \bigg)
+    \end{align*}
+    Then applying the product rule we get that
+    \begin{align*}
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_1 &= 
+        (f_2'g_3 + f_2g_3' - f_3'g_2 - f_3g_2')\\
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_2 &= 
+        (f_3'g_1 + f_3g_1' - f_1'g_3 - f_1g_3')\\
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_3 &= 
+        (f_1'g_2 + f_1g_2' - f_2'g_1 - f_2g_1')
+    \end{align*}
+    On the other hand, we know that
+    \begin{align*}
+        (\bm{f}'(t)\times \bm{g}(t))_1 = (f_2'g_3 - f_3'g_2)\\
+        (\bm{f}'(t)\times \bm{g}(t))_2 = (f_3'g_1 - f_1'g_3)\\
+        (\bm{f}'(t)\times \bm{g}(t))_3 = (f_1'g_2 - f_2'g_1)
+    \end{align*}
+    And that
+    \begin{align*}
+        (\bm{f}(t)\times \bm{g}'(t))_1 = (f_2g_3' - f_3g_2')\\
+        (\bm{f}(t)\times \bm{g}'(t))_2 = (f_3g_1' - f_1g_3')\\
+        (\bm{f}(t)\times \bm{g}'(t))_3 = (f_1g_2' - f_2g_1')
+    \end{align*}
+    So 
+    \begin{align*}
+        (\bm{f}'(t)\times \bm{g}(t))_1 + (\bm{f}(t)\times \bm{g}'(t))_1
+        = (f_2'g_3 - f_3'g_2) + (f_2g_3' - f_3g_2')\\
+        (\bm{f}'(t)\times \bm{g}(t))_2 + (\bm{f}(t)\times \bm{g}'(t))_2
+        = (f_3'g_1 - f_1'g_3) + (f_3g_1' - f_1g_3')\\
+        (\bm{f}'(t)\times \bm{g}(t))_3 + (\bm{f}(t)\times \bm{g}'(t))_3
+        = (f_1'g_2 - f_2'g_1) + (f_1g_2' - f_2g_1')
+    \end{align*}
+    Hence, we see that
+    \begin{align*}
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_1 &= 
+        (\bm{f}'(t)\times \bm{g}(t))_1 + (\bm{f}(t)\times \bm{g}'(t))_1\\
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_2 &= 
+        (\bm{f}'(t)\times \bm{g}(t))_2 + (\bm{f}(t)\times \bm{g}'(t))_2\\
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t))_3 &= 
+        (\bm{f}'(t)\times \bm{g}(t))_3 + (\bm{f}(t)\times \bm{g}'(t))_3
+    \end{align*}
+    This implies that
+    \begin{align*}
+        \frac{d}{dt}(\bm{f}(t) \times \bm{g}(t)) &= 
+       \bm{f}'(t)\times \bm{g}(t) + (\bm{f}(t)\times \bm{g}'(t))
+    \end{align*}
+    \item [2.]
+    The dot product between $\bm{f}(t)$ and $\bm{g}(t)$ gives us
+    \begin{align*}
+        \bm{f}(t) \cdot \bm{g}(t) = f_1g_1 + f_2g_2 + f_3g_3
+    \end{align*}
+    Hence the derivative with respect to $t$ is
+    \begin{align*}
+        \frac{d}{dt}(\bm{f}(t) \cdot \bm{g}(t))
+        &= f_1'g_1 + f_1g_1' + f_2'g_2 + f_2g_2' + f_3'g_3 + f_3g_3'
+    \end{align*}
+    But also we see that 
+    \begin{align*}
+        \bm{f}'(t) \cdot \bm{g}(t) + \bm{f}(t) \cdot \bm{g}'(t)
+        = (f_1'g_1 + f_2'g_2 + f_3'g_3) + (f_1g_1' + f_2g_2' + f_3g_3')
+    \end{align*}
+    Therefore
+    \begin{align*}
+        \frac{d}{dt}(\bm{f}(t) \cdot \bm{g}(t))
+        = \bm{f}'(t) \cdot \bm{g}(t) + \bm{f}(t) \cdot \bm{g}'(t)
+    \end{align*}
+    \item [3.]
+    Let $\bm{v},\bm{w} \in \R^3$ and suppose we orientate the axes of
+    $\R^3$ such that $\bm{v}$ and $\bm{w}$ lay on the $xy$ plane on this
+    system of coordinates. We also rotate the $xy$ axes such that the $x$
+    axis match the direction of $\bm{v}$ then vectors have the following 
+    coordinates
+    \begin{align*}
+        \bm{v} = \begin{pmatrix}
+            v_x\\ 0\\ 0
+        \end{pmatrix}
+        \quad\quad
+        \bm{w} = \begin{pmatrix}
+            w_x\\ w_y\\ 0
+        \end{pmatrix}
+    \end{align*}
+    So we see that the area $A$ of the parallelogram spanned by $\bm v$ and
+    $\bm w$ is $A = v_x w_y$.
+
+    On the other hand, computing the cross product between $\bm{v}$ and $\bm{w}$
+    gives us
+    \begin{align*}
+        \bm{v} \times \bm{w} &= 
+        (v_yw_z - v_zw_y)\uvi + (v_zw_x - v_xw_z)\uvj + (v_xw_y - v_yw_x)\uvk\\
+        &= (v_xw_y) \uvk
+    \end{align*}
+    Where $\uvi, \uvj$ and $\uvk$ are unit vectors in the direction of $x,y$
+    and $z$ respectively. 
+
+    Therefore $|\bm{v} \times \bm{w}| = \sqrt{(v_xw_y)^2} = v_xw_y$
+    which is the area the parallelogram spanned by $\bm v$ and $\bm w$.
+\end{itemize}
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 7}}
+    We know that
+    \begin{align*}
+        r_x &= \rho\cos\theta\\
+        r_y &= \rho\sin\theta
+    \end{align*}
+    And that
+    \begin{align*}
+        \frac{p_x}{\mu} &= \dot\rho\cos\theta - \rho\dot\theta\sin\theta\\
+        \frac{p_y}{\mu} &= \dot\rho\sin\theta + \rho\dot\theta\cos\theta
+    \end{align*}
+    Also, the equation of motion states that
+    $$\dv{\bm{p}}{t} = -\frac{GM\mu}{|\bm{r}|^3}\bm{r}$$
+    Let us compute $\frac{1}{\mu}\dv{\bm{p}}{t}$ as follows
+    \begin{align*}
+        \frac{1}{\mu}\dv{p_x}{t} &= \dv{\dot\rho}{t}\cos\theta
+        - 2\dot\rho\dot\theta\sin\theta
+        - \rho\left(\dv{\dot\theta}{t}\sin\theta + \dot\theta^2\cos\theta\right)\\
+        \frac{1}{\mu}\dv{p_y}{t} &= \dv{\dot\rho}{t}\sin\theta
+        + 2\dot\rho\dot\theta\cos\theta
+        + \rho\left(\dv{\dot\theta}{t}\cos\theta - \dot\theta^2\sin\theta\right)
+    \end{align*}
+    On the other hand, we see that
+    $|\bm{r}| = \sqrt{\rho^2(\cos^2\theta + \sin^2\theta)} = \rho$
+    hence
+    \begin{align*}
+        -\frac{GM}{\rho^3}r_x &= -\frac{GM}{\rho^2}\cos\theta\\
+        -\frac{GM}{\rho^3}r_y &= -\frac{GM}{\rho^2}\sin\theta
+    \end{align*}
+    Then the equations of motion become
+    \begin{align*}
+        \dv{\dot\rho}{t}\cos\theta
+        - 2\dot\rho\dot\theta\sin\theta
+        - \rho\left(\dv{\dot\theta}{t}\sin\theta + \dot\theta^2\cos\theta\right)
+        &= -\frac{GM}{\rho^2}\cos\theta\\
+        \dv{\dot\rho}{t}\sin\theta
+        + 2\dot\rho\dot\theta\cos\theta
+        + \rho\left(\dv{\dot\theta}{t}\cos\theta - \dot\theta^2\sin\theta\right)
+        &= -\frac{GM}{\rho^2}\sin\theta
+    \end{align*}
+    Multiplying the first equation by $\cos\theta$, the second one by
+    $\sin\theta$ and then summing them we get that
+    \begin{align*}
+        \dv{\dot\rho}{t}~(\cos^2\theta + \sin^2\theta)
+        - \rho\dot\theta^2(\cos^2\theta + \sin^2\theta)
+       &= -\frac{GM}{\rho^2}(\cos^2\theta + \sin^2\theta)\\
+       \dv{\dot\rho}{t} - \rho\dot\theta^2 + \frac{GM}{\rho^2} &= 0
+   \end{align*}
+    Which is one of the equations we are looking for.
+    
+    Now, if we multiply the first equation by $\sin\theta$, the second one by
+    $\cos\theta$ and then we subtract the second from the first one we get that
+    \begin{align*}
+        - 2\dot\rho\dot\theta(\sin^2\theta + \cos^2\theta)
+        - \rho\dv{\dot\theta}{t}~(\sin^2\theta + \cos^2\theta)
+        &= 0\\
+        2\dot\rho\dot\theta + \rho\dv{\dot\theta}{t} &= 0
+    \end{align*}
+    Which is another equation that we are looking for.
+
+    Finally by definition we know that
+    \begin{align*}
+        \dv{\rho}{t} &= \dot\rho\qquad
+        \dv{\theta}{t} &= \dot\theta
+    \end{align*}
+    Which completes the last two equations we are looking for.
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 8}}
+    We know that $q = 1/\rho$ hence $\rho = 1/q$ so derivating we get that
+    \begin{align*}
+        \dv{\rho}{t} &= -\frac{1}{q^2}\dv{q}{t}\\
+        \dv{\rho}{t} &= -\frac{1}{q^2}\dv{q}{\theta}\dv{\theta}{t}
+    \end{align*}
+    And substituting the equation for $d\theta/dt$ we have from the hint
+    we get that
+    \begin{align*}
+        \dv{\rho}{t}
+        &= -\frac{1}{q^2}\dv{q}{\theta}\left(q^2\frac{|\tilde{\bm{L}}|}{\mu}\right)\\
+        &=-\frac{|\tilde{\bm{L}}|}{\mu}\dv{q}{\theta}
+    \end{align*}
+    Now we derivate with respect to $t$ again
+    \begin{align*}
+        \dv[2]{\rho}{t}
+        &=-\frac{|\tilde{\bm{L}}|}{\mu}\dv{t}(\dv{q}{\theta})\\
+        &=-\frac{|\tilde{\bm{L}}|}{\mu}\dv[2]{q}{\theta}\dv{\theta}{t}
+    \end{align*}
+    Finally, we replace again the value we have for $d\theta/dt$
+    \begin{align*}
+        \dv[2]{\rho}{t}
+        &=-\frac{|\tilde{\bm{L}}|^2}{\mu^2}q^2\dv[2]{q}{\theta}
+    \end{align*}
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 9}}
+    No, Mars will not crash into the sun because for this to happen the
+    ellipse path that Mars is following needs to transform into an hyperbola
+    and we saw that angular momentum is conserved hence, a planet cannot slow
+    down too much, ruling out bounded motion along a parabola or hyperbola.
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 10}}
+We know that the polar coordinate $\rho$ from the sun to the comet Hale-Bopp
+is
+\begin{align*}
+    \frac{1}{\rho} = \frac{GM\mu^2}{|\bm{\tilde{L}}|^2} + A\cos(\theta + \theta_0)
+\end{align*}
+Also, we know the angular momentum is given by
+\begin{align*}
+    |\bm{\tilde{L}}| = \mu\rho^2\dot\theta = \mu\rho v
+\end{align*}
+Where $v$ is the tangential velocity and since the angular momentum is
+conserved, for the perihelion we have that
+\begin{align*}
+    \frac{|\bm{\tilde{L}}|}{\mu} = \rho_p v_p = (1.36732\times 10^8)(44)
+    = 6016208000~\frac{km^2}{s}
+\end{align*}
+Considering we are at the perihelion we can take $\theta + \theta_0 = 2\pi$
+and hence $A$ is 
+\begin{align*}
+    \frac{1}{\rho_p} &= \frac{GM}{\rho_p^2v_p^2} + A\\
+    A &= \frac{1}{\rho_p} - \frac{GM}{\rho_p^2v_p^2}
+\end{align*}
+Then given that $GM = 132712440044~km^3/s^2$ we have that
+\begin{align*}
+    A &= \frac{1}{1.36732\times 10^8}
+    - \frac{132712440044}{(6016208000)^2}\\
+    A &= 3.64695\times 10^{-9}~km^{-1}
+\end{align*}
+Now, let us suppose we are at the aphelion then must be that
+$\cos\theta + \theta_0 = -1$ hence
+\begin{align*}
+    \frac{1}{\rho_a} &= \frac{GM\mu^2}{|\bm{\tilde{L}}|^2} - A\\
+    &= \frac{132712440044}{(6016208000)^2}
+    - 3.64695\times 10^{-9}\\
+    &= 1.96638\times 10^{-11}
+\end{align*}
+Then $\rho_a = 50854756626$ and the semi-major axis is given by
+\begin{align*}
+    a = \frac{\rho_a + \rho_p}{2} = 25495744313~km \approx 170 AU
+\end{align*}
+Finally, from Kepler's third law the period of the Hale-Bopp comet is
+\begin{align*}
+    \tau^2 &= \frac{4\pi^2 a^3}{GM_s}\\
+    \tau^2
+    &= \frac{4\pi^2 (25495744313)^3}{32712440044}\\
+    \tau &= \sqrt{2.00009 \times 10^{22}~s^2}\\
+    \tau &= 141424594179~s \approx 4484~\text{years}
+\end{align*}
+Therefore Hale-Bopp will return in $4484~\text{years}$.
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 11}}
+    We know that
+    \begin{align*}
+        \frac{1}{(b^2/a)} = \frac{GM\mu^2}{|\tilde{\bm{L}}|}
+    \end{align*}
+    But since we are considering a circular orbit then $b=a$ and 
+    $|\tilde{\bm{L}}| = \mu\rho v= \mu a v$ where $v$ is the velocity of
+    the satellite then
+    \begin{align*}
+        \frac{1}{a} &= \frac{GM\mu^2}{\mu^2 a^2 v^2}\\
+        v^2 &= \frac{GM}{a}\\
+        v &= \sqrt{\frac{GM}{a}}
+    \end{align*}
+    Now, to put the satellite into a circular orbit that passes over the north
+    and south poles the velocity direction needs to change $\pi/2$ radians.
+    Then the change in velocity $\Delta v$ is the hypotenuse of a right triangle
+    where each side is $v$ then
+    \begin{align*}
+        \Delta v = \sqrt{v^2 + v^2} = \sqrt{2}v
+    \end{align*}
+\end{proof}
+\end{document}
