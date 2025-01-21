@@ -331,4 +331,74 @@ Therefore Hale-Bopp will return in $4484~\text{years}$.
         \Delta v = \sqrt{v^2 + v^2} = \sqrt{2}v
     \end{align*}
 \end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 12}}
+    Let $\bm{v} \in \R^2$ and let us set our coordinate system such that
+    $\bm{v}$ is in the $r$ direction then we can write $\bm{v}$ as
+    \begin{align*}
+        \bm{v} = \begin{pmatrix} r_1\\ 0 \end{pmatrix}
+    \end{align*}
+    Then we want to find $\bm{w}$ where 
+    \begin{align*}
+        \bm{w} = \begin{pmatrix} r_2\\ p_2 \end{pmatrix}
+    \end{align*}
+    Such that
+    \begin{align*}
+        r_1p_2 - r_2p_1 = r_1p_2 = 1
+    \end{align*}
+    This implies that $p_2 = 1/r_1$ then $\bm{w}$ is of the form
+    \begin{align*}
+        \bm{w} = \begin{pmatrix} r_2\\ 1/r_1 \end{pmatrix}
+    \end{align*}
+    Below we show a set of the possible $\bm{w}$'s
+    \begin{center}
+        \includegraphics[scale=0.4]{ch1-12.png}
+    \end{center}
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 13}}
+    Let
+    $$x_1 = \begin{pmatrix} r_1 \\p_1 \end{pmatrix}
+    \quad x_2 = \begin{pmatrix} r_2 \\p_2 \end{pmatrix}$$
+    Also, let $B$ be a $2\times 2$ matrix
+    $$B = \begin{pmatrix} b_1 & b_2 \\ b_3 & b_4 \end{pmatrix}$$
+    We know that 
+    \begin{align*}
+        A(x_1, x_2) = \det\begin{pmatrix}
+            r_1 & r_2 \\ p_1 & p_2
+        \end{pmatrix}
+    \end{align*}
+    So, we want to know the necessary and sufficient condition such that
+    \begin{align*}
+        \det(Bx_1, Bx_2) = \det(x_1, x_2)
+    \end{align*}
+    Hence, given that
+    \begin{align*}
+        Bx_1 = \begin{pmatrix}
+            b1r_1 + b_2p_1\\ b_3r_1 + b_4p_1
+        \end{pmatrix}
+        \quad Bx_2 = \begin{pmatrix}
+            b1r_2 + b_2p_2 \\ b_3r_2 + b_4p_2
+        \end{pmatrix}
+    \end{align*}
+    We want that 
+    \begin{align*}
+        (b_1r_1 + b_2p_1)(b_3r_2 + b_4p_2) - (b_3r_1 + b_4p_1)(b_1r_2 + b_2p_2)
+        &= r_1 p_2 - r_2 p_1\\
+        (b_1r_1 + b_2p_1)b_3r_2 + (b_1r_1 + b_2p_1)b_4p_2 -\quad\\
+        - (b_3r_1 + b_4p_1)b_1r_2 - (b_3r_1 + b_4p_1)b_2p_2
+        &= r_1 p_2 - r_2 p_1\\
+        b_1r_1b_3r_2 + b_2p_1b_3r_2 + b_1r_1b_4p_2 + b_2p_1b_4p_2 -\quad\\
+        - b_3r_1b_1r_2 - b_4p_1b_1r_2 - b_3r_1b_2p_2 - b_4p_1b_2p_2
+        &= r_1 p_2 - r_2 p_1\\
+        b_2p_1b_3r_2 + b_1r_1b_4p_2 - b_4p_1b_1r_2 - b_3r_1b_2p_2
+        &= r_1 p_2 - r_2 p_1\\
+        r_1p_2(b_1b_4 - b_3b_2) - r_2p_1(b_1b_4 - b_3b_2)
+        &= r_1 p_2 - r_2 p_1
+    \end{align*}
+    Then for this equality to be true we need that $b_1b_4 - b_3b_2 = 1$ i.e.
+    \begin{align*}
+        \det(B) = 1
+    \end{align*}
+\end{proof}
 \end{document}
